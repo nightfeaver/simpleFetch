@@ -11,9 +11,16 @@ let append = (parent, el) => {
 
 const butt = document.getElementById('button');
 
+let deleteChild = () => {
+	let child = ul.firstElementChild;
+	while(child) {
+		ul.removeChild(child);
+		child=ul.firstElementChild;
+	}
+}
 
 let fetchThem = () => {
-	console.log('pressed');
+	deleteChild();
 	fetch(url)
 	.then(resp => resp.json())
 	.then(data => {
